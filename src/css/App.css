@@ -1,0 +1,224 @@
+*{
+  --Main-Color: purple;
+  --Secondary-Color: rgb(255, 0, 179);
+  --Main-Text-Color: white;
+  --Main-Background-Color: rgba(0, 0, 0, 0.37);
+  transition: all ease-in-out 0.2s;
+}
+
+html{
+  background: linear-gradient(to bottom right, rgb(107, 0, 89), rgb(63, 0, 53), rgb(37, 0, 32));
+  background-repeat: repeat;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  color: var(--Main-Text-Color);
+  animation: gradient-cycle 15s ease infinite;
+}
+
+@keyframes gradient-cycle{
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  pointer-events: none;
+  filter: hue-rotate(140deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#container{
+  width: 90%;
+  margin: auto;
+  display: block;
+  top: 0vh;
+  transform: scaleX(1);
+  position: relative;
+}
+
+header{
+  width: 99%;
+  margin: auto;
+  background: var(--Main-Background-Color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: sticky;
+  top: 0px;
+  z-index: 999999999;
+}
+
+.header-buttons{
+  display: flex;
+  width: 0px;
+  min-width: 10%;
+  width: max-content;
+  margin: auto;
+  background: var(--Main-Background-Color);
+  border-radius: 10px;
+  border: 1px solid var(--Main-Color);
+  justify-content: space-evenly;
+  padding: 15px 10px;
+  overflow: hidden;
+
+  .btn, button{
+    margin: 0 5px;
+  }
+}
+
+button, .btn{
+  --Base-Scale: 100%;
+  border: 1px solid var(--Secondary-Color);
+  transform: scale(var(--Base-Scale));
+  text-decoration: none;
+  width: fit-content;
+  display: block;
+  background: var(--Main-Color);
+  color: black;
+  border-radius: 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+button:hover, .btn:hover{
+  transform: scale(calc(var(--Base-Scale) + 10%));
+}
+button:active, .btn:active{
+  transform: scale(calc(var(--Base-Scale) - 10%));
+}
+button:focus, .btn:focus{
+  border: 1px solid white;
+  outline: none;
+}
+
+.side-bar{
+  transition: all ease-in-out 0.5s;
+  float: right;
+  display: flex;
+  position: absolute;
+  z-index: 999999999999;
+  right: 20px;
+  top: 100px;
+  background: black;
+  width: 50%;
+  min-width: 350px;
+  padding: 10px;
+  height: 80vh;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .border{
+    display: grid;
+    place-content: center;
+    background: var(--Main-Color);
+    height: 100%;
+    min-height: 5px;
+    border-radius: 10px;
+    min-width: 15px;
+  }
+  .list{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    overflow: auto;
+
+    button, .btn{
+      height: fit-content;
+    }
+  }
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background: #2196F3;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.315);
+  border-radius: 30px;
+  width: 50%;
+  margin: auto;
+  
+  .card{
+    --Hover-text: "click me";
+    transform: scale(1) rotate3d(0, 0, 0, 30deg);
+    display: grid;
+    place-items: center;
+    width: 200px;
+    height: 200px;
+    background: rgb(214, 214, 214);
+    border-radius: 30px;
+    color: black;
+    margin: 20px auto;
+    cursor: pointer;
+  }
+  .card:hover:before{
+    transform: scale(1.1) rotate3d(1, 1, 0, 30deg);
+    content: var(--Hover-text);
+  }
+}
+
+form{
+  --Base-Scale: 150%;
+  transform: scale(var(--Base-Scale));
+  background: var(--Main-Background-Color);
+  padding: 10px;
+  display: block;
+  width: fit-content;
+  margin: auto;
+  border-radius: 10px;
+
+  button{
+    margin: auto;
+  }
+}
+
+input{
+  background: black;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  border: none;
+  border: 1px solid var(--Secondary-Color);
+  outline: none;
+}
+input:focus{
+  border: 1px solid white;
+  outline: none;
+}
